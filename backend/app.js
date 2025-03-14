@@ -21,4 +21,4 @@ app.use("/api/reviews", reviewsRoutes);
 
 //exporto la constante para poder usar express en otros archivos
 export default app;
-//ESCRIBIR UNA LINEA ADICIONAL EN EL package.json   [  "type": "module",  ] es la linea
+//ESCRIBIR UNA LINEA ADICIONAL EN EL package.json hasta arriba   [  "type": "module",  ] es la linea y tambien en scripts "dev": "nodemon index.js"

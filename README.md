@@ -6,7 +6,7 @@ npm init -y
 npm install cors express
 npm install mongoose
 npm install dotenv
-npm install nodemon -D    poner el atajo para ejecutar nodemon en packaje.json luego ejecutar npm run dev
+npm install nodemon -D    poner el atajo para ejecutar nodemon en packaje.json en script como "dev": "nodemon index.js" luego para ejecutar use: npm run dev
 node index.js
 
 parte frontend-------------------

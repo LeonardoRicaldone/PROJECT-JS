@@ -9,10 +9,10 @@ npm install nodemon -D    poner el atajo para ejecutar nodemon en packaje.json l
 node index.js
 
 parte frontend-------------------
-npm i
 npm create vite@latest
 -seleccionamos react y el "javaScript"  el amarillito
 nos vamos a la carpeta del proyecto que se creo y hacemos
+npm i 
 npm run dev    ejecuta la plantilla de el proyecto
 en App.jsx puedes eliminar el contenido de la funcion y se eliminara la plantilla que viene default
 quedaria algo asi:

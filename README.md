@@ -1,3 +1,5 @@
+instalar node.js para ejecutar la terminal
+
 cd carpeta
 npm init -y
 npm install cors express

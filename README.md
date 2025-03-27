@@ -63,7 +63,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
 ```
 ### Crear las rutas
 1.Abre el archivo ```App.jsx```.

@@ -27,6 +27,10 @@ const employeesSchema = new Schema(
       type: Date,
       require: true,
     },
+    email: {
+      type: String,
+      require: true,
+    },
     address: {
       type: String,
       require: true,
@@ -36,9 +40,9 @@ const employeesSchema = new Schema(
       require: true,
     },
     password: {
-        type: String,
-        require: true,
-      },
+      type: String,
+      require: true,
+    },
     telephone: {
       type: String,
       require: true,
@@ -48,9 +52,9 @@ const employeesSchema = new Schema(
       require: true,
     },
     isssNumber: {
-        type: Number,
-        require: true,
-      },
+      type: Number,
+      require: true,
+    },
     isVerified: {
       type: Boolean,
       require: true,

@@ -47,9 +47,8 @@ npm install react-router-dom
 ```
 sirve para crear rutas hacia otras paginas
 
-### Configurar React Router
+### Configurar React Router.
 1. Abre el archivo ```main.jsx```.
-   
 2. Importa BrowserRouter desde react-router-dom y envuelve tu componente raíz con él:
    
 ```ruby

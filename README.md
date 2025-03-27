@@ -18,6 +18,20 @@ npm install mongoose
 ```
 npm install dotenv
 ```
+### Instalamos ayuda para hacer los registros
+
+1. Sirve para Encriptar
+```
+npm install bcryptjs
+```
+2. Sirve para generar tokens
+```
+npm install jsonwebtoken
+```
+3. Sirve para generar cookies
+   ```
+   npm install cookie-parser
+   ```
 ```
 npm install nodemon -D
 ```

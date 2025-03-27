@@ -4,7 +4,7 @@ Codigos de ejecucion en la terminal para el funcionamiento de el proyecto
 
 ## Parte backend --------------------
 ```
-cd carpeta
+cd backend
 ```
 ```
 npm init -y
@@ -32,6 +32,9 @@ npm create vite@latest
 ```
 -seleccionamos react y el "javaScript"  el amarillito
 nos vamos a la carpeta del proyecto que se creo y hacemos
+```
+cd frontend
+```
 ```
 npm i
 ```

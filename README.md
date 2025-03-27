@@ -19,7 +19,7 @@ npm run dev    ejecuta la plantilla de el proyecto
 en App.jsx puedes eliminar el contenido de la funcion y se eliminara la plantilla que viene default
 quedaria algo asi:
 
-```
+```ruby
 import './App.css'
 
 function App() {

@@ -1,4 +1,4 @@
-# Instalar node.js para ejecutar la terminal ```https://nodejs.org/es```
+# Instalar node.js para ejecutar la terminal (https://nodejs.org/es)
 
 Codigos de ejecucion en la terminal para el funcionamiento de el proyecto
 

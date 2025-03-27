@@ -19,6 +19,7 @@ npm run dev    ejecuta la plantilla de el proyecto
 en App.jsx puedes eliminar el contenido de la funcion y se eliminara la plantilla que viene default
 quedaria algo asi:
 
+```
 import './App.css'
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
 }
 
 export default App
+```
 
 vamos a boostrap y vamos a download buscamos CDN via jsDelivr 
 copiamos y pegamos en el index.html arriba de title

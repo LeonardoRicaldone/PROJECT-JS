@@ -66,9 +66,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 ```
 ### Crear las rutas
-1.Abre el archivo ```App.jsx```.
-2.Importa Routes y Route desde react-router-dom y define tus rutas:
-```
+1. Abre el archivo ```App.jsx```.
+2. Importa Routes y Route desde react-router-dom y define tus rutas:
+```ruby
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';

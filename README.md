@@ -1,6 +1,8 @@
 # Instalar node.js para ejecutar la terminal ```https://nodejs.org/es```
 
-## parte backend --------------------
+Codigos de ejecucion en la terminal para el funcionamiento de el proyecto
+
+## Parte backend --------------------
 ```
 cd carpeta
 ```
@@ -24,7 +26,7 @@ npm install nodemon -D
 node index.js
 ```
 
-parte frontend-------------------
+## Parte frontend-------------------
 ```
 npm create vite@latest
 ```

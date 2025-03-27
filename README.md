@@ -1,4 +1,4 @@
-#instalar node.js para ejecutar la terminal ```https://nodejs.org/es```
+# Instalar node.js para ejecutar la terminal ```https://nodejs.org/es```
 
 parte backend--------------------
 ```

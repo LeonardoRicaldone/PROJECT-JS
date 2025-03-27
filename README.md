@@ -1,21 +1,21 @@
 instalar node.js para ejecutar la terminal https://nodejs.org/es
 
 parte backend--------------------
-cd carpeta
-npm init -y
-npm install cors express
-npm install mongoose
-npm install dotenv
-npm install nodemon -D    poner el atajo para ejecutar nodemon en packaje.json en script como "dev": "nodemon index.js" luego para ejecutar use: npm run dev
-node index.js
+```cd carpeta```
+```npm init -y```
+```npm install cors express```
+```npm install mongoose```
+```npm install dotenv```
+```npm install nodemon -D ```   poner el atajo para ejecutar nodemon en packaje.json en script como "dev": "nodemon index.js" luego para ejecutar use: npm run dev
+```node index.js```
 
 parte frontend-------------------
-npm create vite@latest
+```npm create vite@latest```
 -seleccionamos react y el "javaScript"  el amarillito
 nos vamos a la carpeta del proyecto que se creo y hacemos
-npm i 
-npm i react-router sirve para crear rutas hacia otras paginas
-npm run dev    ejecuta la plantilla de el proyecto
+```npm i ```
+```npm install react-router-dom``` sirve para crear rutas hacia otras paginas
+```npm run dev```   ejecuta la plantilla de el proyecto
 en App.jsx puedes eliminar el contenido de la funcion y se eliminara la plantilla que viene default
 quedaria algo asi:
 

@@ -85,7 +85,7 @@ function App() {
 
 export default App;
 ```
-### Correr el programa
+### Ejecucion del frontend
 ```
 npm run dev
 ```

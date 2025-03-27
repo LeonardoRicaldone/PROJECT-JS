@@ -1,6 +1,6 @@
 # Instalar node.js para ejecutar la terminal ```https://nodejs.org/es```
 
-parte backend--------------------
+## parte backend --------------------
 ```
 cd carpeta
 ```

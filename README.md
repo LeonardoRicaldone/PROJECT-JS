@@ -14,6 +14,7 @@ npm create vite@latest
 -seleccionamos react y el "javaScript"  el amarillito
 nos vamos a la carpeta del proyecto que se creo y hacemos
 npm i 
+npm i react-router sirve para crear rutas hacia otras paginas
 npm run dev    ejecuta la plantilla de el proyecto
 en App.jsx puedes eliminar el contenido de la funcion y se eliminara la plantilla que viene default
 quedaria algo asi:

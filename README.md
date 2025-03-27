@@ -29,9 +29,9 @@ npm install bcryptjs
 npm install jsonwebtoken
 ```
 3. Sirve para generar cookies
-   ```
-   npm install cookie-parser
-   ```
+```
+npm install cookie-parser
+```
 ```
 npm install nodemon -D
 ```

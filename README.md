@@ -1,6 +1,10 @@
 # Instalar node.js para ejecutar la terminal [nodejs.org](https://nodejs.org/es)
 
 Codigos de ejecucion en la terminal para el funcionamiento de el proyecto
+cosas que solo me pasan a mi con el npm
+```
+Set-Alias npm "C:\Program Files\nodejs\npm.cmd"
+```
 
 ## Parte backend --------------------
 ```

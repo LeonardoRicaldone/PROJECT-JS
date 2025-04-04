@@ -30,6 +30,7 @@ app.use("/api/employees", employeesRoutes);
 app.use("/api/registerEmployees", registerEmployeesRoutes)
 app.use("/api/login", loginRoutes)
 app.use("/api/logout", logoutRoutes)
+app.use("/api/registerClients")
 
 //exporto la constante para poder usar express en otros archivos
 export default app;

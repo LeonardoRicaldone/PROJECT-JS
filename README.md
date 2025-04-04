@@ -36,6 +36,14 @@ npm install jsonwebtoken
 ```
 npm install cookie-parser
 ```
+4. Para enviar un correo
+```
+npm install nodemailer
+```
+5. Para generar un codigo
+```
+npm install crypto
+```
 ```
 npm install nodemon -D
 ```

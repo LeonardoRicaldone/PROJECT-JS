@@ -1,14 +1,17 @@
-import clientsModel from "../models/Clients.js"
-import nodemailer from "nodemailer";
-import crypto from "crypto"
-import bcryptjs from "bcryptjs"
-import jsonwebtoken from "jsonwebtoken"
-import { config } from "../config.js"
+//Importamos todas las librerias
+import jsonwebtoken from "jsonwebtoken"; //Generar Token
+import bcryptjs from "bcryptjs"; //Encriptar
+import nodemailer from "nodemailer"; //Enviar correo
+import crypto from "crypto"; //Generar código
 
+import clientsModel from "../models/Clients.js";
+import {config} from "../config.js";
 
-const registerClientController = {};
+//Array de funciones
+const registerClientsController = {};
 
-registerClientController.registerClient = async (req, res) => {
+registerClientsController.registerClient = async (req, res) => {
+    // 1- Pedimos las cosas que vamos a guardar
     const {
         name,
         lastName,
@@ -21,18 +24,16 @@ registerClientController.registerClient = async (req, res) => {
     } = req.body;
 
     try {
-        // Verificar si el cliente ya existe
-        const existClient = await clientsModel.findOne({ email })
-        if (existClient) {
-            return res.json({ message: "Client already exist" })
+        //Verificar si el usuario ya existe
+        const existClient = await clientsModel.findOne({email})
+        if(existClient){
+            return res.json({message: "Client already exist"})
         }
 
-        // Encriptar la contraseña
-
+        //Encriptar la contraseña
         const passwordHash = await bcryptjs.hash(password, 10)
 
-        // Guardamos el cliente en la base de datos
-
+        //Guardamos en la base de datos
         const newClient = new clientsModel({
             name,
             lastName,
@@ -42,104 +43,100 @@ registerClientController.registerClient = async (req, res) => {
             telephone,
             dui: dui || null,
             isVerified: isVerified || false,
-        });
-        await newClient.save();
-        res.json({ message: "client saved" });
+        })
+        await newClient.save()
 
-        // Generar codigo de verificacion
+        // Generar un código de verificación 
         const verificationCode = crypto.randomBytes(3).toString("hex")
-        const expiresAt = Dato.now() + 1 * 60 * 60 * 1000; // 2 horas
+        const expireAt = Date.now() + 2 * 60 * 60 * 1000; // 2 horas
 
-        //TOKEN
-        //Para validar que inicio sesion
+        // TOKEN
         jsonwebtoken.sign(
-            //1 que voy a guardar
-            { email, verificationCode, expiresAt },
+            //1- Que voy a guardar
+            {email, verificationCode, expireAt},
             //2- secreto
             config.JWT.secret,
             //3- Cuando expira
-            { expiresIn: config.JWT.expiresIn },
-            //4- Funcion flecha
-            (error, token) => {
-                if (error) console.log("error" + error)
-
-                res.cookie("verificationToken", token, { maxAge: 1 * 60 * 60 * 1000 }) // Despues de el "token" ponga coma y para asegurar el token escriba: { httpsOnly : true }
-                res.json({ message: "Register successful" })
+            {expiresIn: config.JWT.expiresIn},
+            //4- Función flecha
+        (error, token) =>{
+            if(error) console.log("Error" + error)
+                res.cookie("verificationToken", token, {maxAge: 2 * 60 * 60 * 1000}) //Solo si esta validada con https se pone: {httpOnly: true}
             }
         )
-
-        // Enviar correo
+    
+        //Enviar correo de verificación
+        //1- Transporter: ¿Desde dónde voy a enviar el correo?
         const transporter = nodemailer.createTransport({
-            service: "gmail",
+            service: "gmail", 
             auth: {
                 user: config.email.user,
-                pass: config.email.pass
+                pass: config.email.pass                
             }
         })
 
-        // 2 Option: A quien se lo voy a enviar
 
+        //2- Options: ¿A quién se lo voy a enviar?
         const mailOptions = {
             from: config.email.user,
             to: email,
-            subject: "Verificacion de correo",
-            text: `Hola mundo ${verificationCode}\n Este codigo expira en dos horas XD\n`
+            subject: "Verificación de correo",
+            text: `Para verificar que eres dueño de la cuenta, utiliza este codigo ${verificationCode}\n Este código expira en 2 horas\n`
         }
 
-        // Envio del correo
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) console.log("error" + error)
-            res.json({ message: "Email send" })
+        //3- Envio del correo 
+        transporter.sendMail(mailOptions, (error, info) =>{
+            if(error) console.log("error" + error)
+            res.json({message: "Email sent"})
         })
 
-        res.json({ message: "Client registered, please verify your email" })
+        res.json({message: "Client registered, please verify your email"})
+
+      }catch(error){
+        res.json({message: "Error" + error})
+      }
+    };
 
 
-    } catch (error) {
-        console.log("error" + error)
-        res.json({ message: "Error registerClient" })
-    }
-}
+    registerClientsController.verificationCodeEmail = async (req, res) =>{
+        const{verificationCode} = req.body;
+        //Acceder al token "verification token" ya que este contiene: el email, el código de verificación y cuando expira el código
+        const token = req.cookies.verificationToken;
 
-registerClientController.verifyCodeEmail = async (req, red) => {
-    const { verificationCode } = req.body;
-    // Accedemos al token "verificacion token"
-    // ya que este contiene, el email, el codigo de verificacion y cuando expira
-    const token = req.cookies.verificationCode;
-
-    if (!token) {
-        return res.json({ message: "Please register your account first" })
-    }
-
-    try {
-        //Verificamos y decodificar el token
-        // para obtener el email y el codigo de verificacion
-        // que acabos de guardar al momento de registrar
-        const decoded = jsonwebtoken.verify(token, config.JWT.secret)
-        const { email, verificationCode: storedCode } = decoded;
-
-        // Comparar el codigo recivido con el almacenado en el token
-        if (verificationCode !== storedCode) {
-            return res.json({
-                message: "Invalid verification code"
-            })
+        if(!token){
+            return res.json({message: "Please register your account first"})
         }
 
-        // Busco al cliente
-        const client = await clientsModel.findOne({ email })
-        if (!client) {
-            return res.json({ message: "Client not found" })
+        try {
+            //Verificamos y descoficamos el token para obtener el email y el cógido de verificación que acabamos de guardar al momento de registrar
+            const decoded = jsonwebtoken.verify(token, config.JWT.secret)
+            const {email, verificationCode: storedCode} = decoded;
+
+            //Comparar el código recibido con el almacenado en el token
+            if(verificationCode !== storedCode){
+                return res.json({message: "Invalid verification code"})
+            }
+
+            //Busco al cliente
+            const client = await clientsModel.findOne({email})
+            if(!client){
+                return res.json({message: "Client not found"})
+            }
+
+            //A ese cliente le cambio el campo "isVerified" a true
+            client.isVerified = true,
+            await client.save();
+            
+            //Quitar el token con el email, codigo de verificación 
+            res.clearCookie("verificationToken")
+
+            res.json({message: "Email verified successfully"})
+
+
+        } catch (error) {
+            res.json({message: "Error" + error})
         }
-
-        // A ese cliente le cambio el campo "isVerified" a true
-        client.isVerified = true,
-        await client.save();
-
-        res.clearCookie("verificationToken")
-        res.json({message: "Email verified successfully"})
-    } catch (error) {
-        console.log("error" + error)
-        res.json({ message: "Error Verified Client" })
     }
-}
+
+    export default registerClientsController;

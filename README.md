@@ -61,10 +61,7 @@ cd frontend
 ```
 npm i
 ```
-```
-npm install react-router-dom
-```
-sirve para crear rutas hacia otras paginas
+
 
 ### Configurar React Router.
 1. Abre el archivo ```main.jsx```.
@@ -107,6 +104,10 @@ export default App;
 ```
 npm run dev
 ```
+```
+npm install react-router-dom
+```
+sirve para crear rutas hacia otras paginas
 en ```App.jsx``` puedes eliminar el contenido de la funcion y se eliminara la plantilla que viene default
 quedaria algo asi:
 

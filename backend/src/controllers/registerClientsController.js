@@ -68,6 +68,8 @@ registerClientController.registerClient = async (req, res) => {
             }
         )
 
+        // Enviar correo
+
     } catch (error) {
         console.log("error" + error)
         res.json({ message: "Error registerClient" })

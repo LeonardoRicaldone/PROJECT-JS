@@ -96,4 +96,48 @@ passwordRecoveryController.verifyCode = async (req, res) => {
     }
 }
 
+//Funcion para asignar una nueva contraseña
+passwordRecoveryController.newPassword = async (req, res) => {
+    const { newPassword } = req.body;
+
+    try {
+        //Extraer el token de las cookies
+        const token = req.cookies.tokenRecoveryCode;
+
+        const decoded = jsonwebtoken.verify(token, config.JWT.secret);
+
+        if (!decoded.verified) {
+            return res.json({ message: "Code not verified" });
+        }
+
+        const {email, usertType} = decoded;
+
+        const hashedPassword = await bcryptjs.hash(newPassword, 10);
+
+        let updateUser;
+
+        if (usertType === "client") {
+            updateUser = await clientsModel.findOneAndUpdate(
+                { email},
+                { password: hashedPassword},
+                { new: true}
+            );
+        } else if (usertType === "employee") {
+            updateUser = await employeesModel.findOneAndUpdate(
+                { email },
+                { password: hashedPassword },
+                { new: true}
+            );
+        }
+
+        res.clearCookie("tokenRecoveryCode");
+        res.json({ message: "Password updated" });
+
+    } catch (error) {
+        console.error("ERROR:", error);
+        res.json({ message: "ERROR PASSWORD CANNOT BE UPDATE" });
+
+    }
+}
+
 export default passwordRecoveryController;

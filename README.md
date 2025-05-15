@@ -44,6 +44,17 @@ npm install nodemailer
 ```
 npm install crypto
 ```
+6. Para guardar imagenes y videos
+```
+npm install cloudinary
+```
+```
+npm install multer
+```
+```
+npm install multer-storage-cloudinary
+```
+7. Para ejecutar con npm run dev
 ```
 npm install nodemon -D
 ```

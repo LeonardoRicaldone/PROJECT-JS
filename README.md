@@ -46,13 +46,13 @@ npm install crypto
 ```
 6. Para guardar imagenes y videos
 ```
-npm install cloudinary
+npm install multer-storage-cloudinary
 ```
 ```
 npm install multer
 ```
 ```
-npm install multer-storage-cloudinary
+npm install cloudinary
 ```
 7. Para ejecutar con npm run dev
 ```

@@ -44,7 +44,11 @@ npm install nodemailer
 ```
 npm install crypto
 ```
-6. Para guardar imagenes y videos
+6. Para ejecutar con npm run dev
+```
+npm install nodemon -D
+```
+7. Para guardar imagenes y videos
 ```
 npm install multer-storage-cloudinary
 ```
@@ -53,10 +57,6 @@ npm install multer
 ```
 ```
 npm install cloudinary
-```
-7. Para ejecutar con npm run dev
-```
-npm install nodemon -D
 ```
 ### Ejecucion del backend
  poner el atajo para ejecutar nodemon en ```packaje.json``` en script como ```"dev" : "nodemon index.js"``` y tambien poner ```"type": "module"``` luego

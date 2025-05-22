@@ -126,6 +126,9 @@ npm run dev
 ```
 npm install react-router-dom
 ```
+```
+npm install react-hot-toast
+```
 sirve para crear rutas hacia otras paginas
 en ```App.jsx``` puedes eliminar el contenido de la funcion y se eliminara la plantilla que viene default
 quedaria algo asi:

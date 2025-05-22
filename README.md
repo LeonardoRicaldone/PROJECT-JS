@@ -58,6 +58,10 @@ npm install multer
 ```
 npm install cloudinary
 ```
+8. Para definir quienes pueden usar los endpoints
+```
+npm install cors
+```
 ### Ejecucion del backend
  poner el atajo para ejecutar nodemon en ```packaje.json``` en script como ```"dev" : "nodemon index.js"``` y tambien poner ```"type": "module"``` luego
  Puedes usar cualquiera de los 2 comandos de abajo para ejecutar el codigo backend solo que el primero lo corre y se actualiza constantemente y el segundo hay que reiniciarlo al hacer algun cambio

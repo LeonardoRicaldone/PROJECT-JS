@@ -15,9 +15,17 @@ import registerClientRoutes from "./src/routes/registerClients.js"
 import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import providersRoutes from "./src/routes/providers.js";
 import { validateAuthToken } from "./src/middleware/validateAuthToken.js";
+import cors from "cors";
 
 //crear constante que es igual a la libreria que importe
 const app = express();
+
+//usamos cors
+app.use(
+    cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+}))
 
 //Que acepte datos de json
 app.use(express.json());

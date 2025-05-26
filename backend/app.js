@@ -37,7 +37,7 @@ app.use("/api/products", productsRoutes);
 app.use("/api/clients", clientsRoutes);
 app.use("/api/branches", branchesRoutes);
 app.use("/api/reviews", reviewsRoutes);
-app.use("/api/employees", validateAuthToken(["admin"]) ,employeesRoutes);
+app.use("/api/employees", employeesRoutes);
 
 app.use("/api/registerEmployees", registerEmployeesRoutes)
 app.use("/api/login", loginRoutes)
@@ -46,7 +46,7 @@ app.use("/api/registerClients", registerClientRoutes)
 
 app.use("/api/recoveryPassword", recoveryPasswordRoutes)
 
-app.use("/api/providers", validateAuthToken(["admin"]), providersRoutes)
+app.use("/api/providers",  providersRoutes)
 
 //exporto la constante para poder usar express en otros archivos
 export default app;

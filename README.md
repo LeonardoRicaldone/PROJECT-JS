@@ -124,10 +124,6 @@ function App() {
 
 export default App;
 ```
-### Ejecucion del frontend
-```
-npm run dev
-```
 ```
 npm install react-router-dom
 ```
@@ -142,6 +138,10 @@ npm install lucide-react
 ```
 ```
 npm install sweetalert2
+```
+### Ejecucion del frontend
+```
+npm run dev
 ```
 sirve para crear rutas hacia otras paginas
 en ```App.jsx``` puedes eliminar el contenido de la funcion y se eliminara la plantilla que viene default

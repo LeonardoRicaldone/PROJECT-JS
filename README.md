@@ -48,7 +48,11 @@ npm install crypto
 ```
 npm install nodemon -D
 ```
-7. Para guardar imagenes y videos
+7. Para definir quienes pueden usar los endpoints
+```
+npm install cors
+```
+8. Para guardar imagenes y videos
 ```
 npm install multer-storage-cloudinary
 ```
@@ -58,10 +62,7 @@ npm install multer
 ```
 npm install cloudinary
 ```
-8. Para definir quienes pueden usar los endpoints
-```
-npm install cors
-```
+
 ### Ejecucion del backend
  poner el atajo para ejecutar nodemon en ```packaje.json``` en script como ```"dev" : "nodemon index.js"``` y tambien poner ```"type": "module"``` luego
  Puedes usar cualquiera de los 2 comandos de abajo para ejecutar el codigo backend solo que el primero lo corre y se actualiza constantemente y el segundo hay que reiniciarlo al hacer algun cambio
@@ -132,6 +133,15 @@ npm install react-router-dom
 ```
 ```
 npm install react-hot-toast
+```
+```
+npm install react-icons
+```
+```
+npm install lucide-react
+```
+```
+npm install sweetalert2
 ```
 sirve para crear rutas hacia otras paginas
 en ```App.jsx``` puedes eliminar el contenido de la funcion y se eliminara la plantilla que viene default

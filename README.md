@@ -139,6 +139,9 @@ npm install lucide-react
 ```
 npm install sweetalert2
 ```
+```
+npm install react-hook-form
+```
 ### Ejecucion del frontend
 ```
 npm run dev

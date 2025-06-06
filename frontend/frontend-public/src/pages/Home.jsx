@@ -13,11 +13,11 @@ const Home = () => {
       const productsResponse = await fetch("http://localhost:4000/api/products");
       const employeesResponse = await fetch("http://localhost:4000/api/employees");
       const branchesResponse = await fetch("http://localhost:4000/api/branches");
-      
+
       const productsData = await productsResponse.json();
       const employeesData = await employeesResponse.json();
       const branchesData = await branchesResponse.json();
-      
+
       setData({
         products: productsData.length,
         employees: employeesData.length,
@@ -77,7 +77,7 @@ const Home = () => {
       <div className="mt-8 bg-white rounded-lg shadow-md p-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Bienvenido al Sistema</h2>
         <p className="text-gray-600">
-          Utiliza el menú de navegación para gestionar productos, empleados y sucursales.
+          Gestion de datos
         </p>
       </div>
     </div>

@@ -75,7 +75,7 @@ const Home = () => {
       </div>
 
       <div className="mt-8 bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Bienvenido al Sistema</h2>
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">Bienvenido usuario a la gestion del sistema</h2>
         <p className="text-gray-600">
           Gestion de datos
         </p>

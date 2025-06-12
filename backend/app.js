@@ -16,6 +16,9 @@ import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import providersRoutes from "./src/routes/providers.js";
 import faqsRoutes from "./src/routes/faqs.js";
 import cors from "cors";
+import swaggerUI from "swagger-ui-express";
+import fs from "fs";
+import path from "path";
 
 //crear constante que es igual a la libreria que importe
 const app = express();
@@ -27,12 +30,19 @@ app.use(
     credentials: true,
 }))
 
+//traemos el archivo json
+const swaggerDocument = JSON.parse(
+    fs.readFileSync(path.resolve("./DocumentacionZonaDigital.json"), "utf-8")
+)
+
 //Que acepte datos de json
 app.use(express.json());
 //Que postman acepte guardar cookies
 app.use(cookieParser())
 
 //Definir las rutas de las funciones que tendra la pagina web
+app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument))
+
 app.use("/api/products", productsRoutes);
 app.use("/api/clients", clientsRoutes);
 app.use("/api/branches", branchesRoutes);

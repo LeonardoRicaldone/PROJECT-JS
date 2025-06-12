@@ -1,0 +1,362 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Hola esta es mi api para Zona Digital",
+    "description": "En esta api tenemos los endpoints para para los cruds de mi aplicacion",
+    "contact": {
+      "email": "you@your-company.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/ricaldone-32f/ZodaDigitalMERN/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "paths": {
+    "/api/products": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Select a product",
+        "description": "Este metodo nos ayuda a traer todos los datos de la coleccion de Products",
+        "operationId": "get-api-products",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Update a product",
+        "description": "Esto me ayuda a actualizar un producto",
+        "operationId": "put-api-products",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_products_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "418": {
+            "description": "I'm a teapot"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Insert a product",
+        "description": "Este metodo funciona para agregar un nuevo producto",
+        "operationId": "post-api-products",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_products_body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "418": {
+            "description": "I'm a teapot"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Delete a product",
+        "description": "Esto nos ayuda a eliminar un producto",
+        "operationId": "delete-api-products",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "418": {
+            "description": "I'm a teapot "
+          }
+        }
+      }
+    },
+    "/api/brands": {
+      "get": {
+        "tags": [
+          "brands"
+        ],
+        "summary": "Select a brand",
+        "description": "Esto selecciona todas las brands",
+        "operationId": "get-api-brands",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "brands"
+        ],
+        "summary": "Update a brand",
+        "description": "Esto actualiza una brand",
+        "operationId": "put-api-brands",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_brands_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "brands"
+        ],
+        "summary": "Insert a brand",
+        "description": "Esto guarda una brand",
+        "operationId": "post-api-brands",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_brands_body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "brands"
+        ],
+        "summary": "Delete a brand",
+        "description": "Esto elimina una brand",
+        "operationId": "delete-api-brands",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "api_products_body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "v30m59e6hi6sf"
+            }
+          },
+          "description": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "t9k7ru99scrdf"
+            }
+          },
+          "price": {
+            "type": "number",
+            "x-stoplight": {
+              "id": "5q51vrlm3f8mz"
+            }
+          },
+          "stock": {
+            "type": "number",
+            "x-stoplight": {
+              "id": "d9x5kequ4ori1"
+            }
+          }
+        }
+      },
+      "api_products_body_1": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "pqp480aps8i9z"
+            }
+          },
+          "description": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "uf05eihcb6lsb"
+            }
+          },
+          "price": {
+            "maximum": 500,
+            "minimum": 0.001,
+            "type": "number",
+            "x-stoplight": {
+              "id": "yfv4sgb3vdioa"
+            }
+          },
+          "sctock": {
+            "type": "number",
+            "x-stoplight": {
+              "id": "0lttp0xhv2vgi"
+            }
+          }
+        }
+      },
+      "api_brands_body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "q6vxbtu62wdu8"
+            }
+          },
+          "year": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "qj02njyfmge8z"
+            }
+          },
+          "slogan": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "1lyz80kbbsxhv"
+            }
+          },
+          "image": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "5bxw25gizyj5r"
+            }
+          }
+        }
+      },
+      "api_brands_body_1": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "97fk6iuf6dodi"
+            }
+          },
+          "year": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "93tn48vei5qqy"
+            }
+          },
+          "slogan": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "fmr1yrk2hlqwg"
+            }
+          },
+          "image": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "dh9cdgj3wypci"
+            }
+          }
+        }
+      }
+    }
+  }
+}

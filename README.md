@@ -52,7 +52,11 @@ npm install nodemon -D
 ```
 npm install cors
 ```
-8. Para guardar imagenes y videos
+8. Para leer documentacion de swagger
+```
+npm install swagger-ui-express --force
+```
+9. Para guardar imagenes y videos
 ```
 npm install multer-storage-cloudinary
 ```

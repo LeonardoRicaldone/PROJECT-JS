@@ -15,10 +15,12 @@ import registerClientRoutes from "./src/routes/registerClients.js"
 import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import providersRoutes from "./src/routes/providers.js";
 import faqsRoutes from "./src/routes/faqs.js";
+import salesRouter from "./src/routes/sales.js";
 import cors from "cors";
 import swaggerUI from "swagger-ui-express";
 import fs from "fs";
 import path from "path";
+import {validateAuthToken } from "./src/middleware/validateAuthToken.js";
 
 //crear constante que es igual a la libreria que importe
 const app = express();
@@ -43,12 +45,12 @@ app.use(cookieParser())
 //Definir las rutas de las funciones que tendra la pagina web
 app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 
-app.use("/api/products", productsRoutes);
+app.use("/api/products", validateAuthToken(["admin"]), productsRoutes);
 app.use("/api/clients", clientsRoutes);
 app.use("/api/branches", branchesRoutes);
 app.use("/api/reviews", reviewsRoutes);
 app.use("/api/employees", employeesRoutes);
-
+app.use("/api/sales", salesRouter);
 app.use("/api/registerEmployees", registerEmployeesRoutes)
 app.use("/api/login", loginRoutes)
 app.use("/api/logout", logoutRoutes)

@@ -145,6 +145,7 @@ npm install sweetalert2
 ```
 ```
 npm install react-hook-form
+npm install react-hook-form @hookform/resolvers yup
 ```
 ### Ejecucion del frontend
 ```

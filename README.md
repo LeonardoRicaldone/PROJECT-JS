@@ -189,3 +189,8 @@ npm install -g expo-cli
 npx create-expo-app --template
 ```
 "En choose template escriba (Blank) para decir que estamos usando javascript"
+Para ejecutar el codigo dentro de la carpeta del proyecto ejecute el siguiente comando:
+```
+npm start
+```
+selecciona la opcion de android studio

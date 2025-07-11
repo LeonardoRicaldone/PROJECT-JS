@@ -194,3 +194,7 @@ Para ejecutar el codigo dentro de la carpeta del proyecto ejecute el siguiente c
 npm start
 ```
 selecciona la opcion de android studio
+si esta en otra compu y quiere abrir este proyecto debe ejecutar primero
+```
+npm i
+```

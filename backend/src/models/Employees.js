@@ -59,6 +59,14 @@ const employeesSchema = new Schema(
       type: Boolean,
       require: true,
     },
+    loginAttempts:{
+      type: Number,
+      default: 0,
+    },
+    timeOut:{
+      type: Date,
+      default: null,
+    },
   },
   {
     timestamps: true,
